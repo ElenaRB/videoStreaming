@@ -9,5 +9,13 @@
                 $_SESSION["variable"] = uniqid();
             }
        }
+        
+        function validar() {
+            if (!isset($_SESSION['validado']) && $_SESSION['validado'] == false) {
+                header("Location: login.php");
+                exit;
+            }
+        }
+        
     }
 ?>

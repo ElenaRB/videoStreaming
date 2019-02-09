@@ -2,19 +2,19 @@
 //Recibimos del formulario de iniciar la sesión el dni del usuario y la clave introducidas
 $dni="";
 if (!isset($_POST['dni'])){
-	header("Location: ./../login.php?mensaje=".urlencode("No se ha podido obtener el dni"));
+	header("Location: login.php?mensaje=".urlencode("No se ha podido obtener el dni"));
 	exit;
 }
 $dni=strip_tags(trim($_POST['dni']));
 $clave="";
 if (!isset($_POST['clave'])){
-	header("Location: ./../login.php?mensaje=".urlencode("No se ha podido obtener la clave"));
+	header("Location: login.php?mensaje=".urlencode("No se ha podido obtener la clave"));
 	exit;
 }
 $clave=strip_tags(trim($_POST['clave']));
 
 if (empty($dni) || strlen($dni)>20 || empty($clave) || strlen($clave)>20){
-	header("Location: ./../login.php?mensaje=".urlencode("Usuario inexistente o clave no reconocida"));
+	header("Location: login.php?mensaje=".urlencode("Usuario inexistente o clave no reconocida"));
 	exit;
 }
 
@@ -44,7 +44,7 @@ mysqli_stmt_fetch($consulta);
 //Se verifican las claves (La introducida y la recibida gracias a la consulta), si no son iguales se muestra el mensaje de contraseña incorrecta
 
 if (!password_verify($clave, $cclave)) {
-    header("Location: ./../login.php?mensaje=".urlencode("Contraseña incorrecta"));
+    header("Location: login.php?mensaje=".urlencode("Contraseña incorrecta"));
     exit;
 }
 

@@ -1,5 +1,5 @@
 <?php
-require_once("./src/Pantalla.class.php");
+require_once("Pantalla.class.php");
 
 
 $mensaje="";

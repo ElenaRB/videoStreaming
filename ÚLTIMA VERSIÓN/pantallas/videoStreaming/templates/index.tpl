@@ -6,11 +6,12 @@
     <div class="title">
         <h1>Vídeo Streaming<br />Bestflix</h1>
     </div>
-    <!--<style>
+    <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
         body {
             background-color: black;
+            color: white;
         }
 
         .title {
@@ -47,7 +48,7 @@
         }
 
     </style>
-    <link rel="stylesheet" type="text/css" href="css/css.css">-->
+    <!--link rel="stylesheet" type="text/css" href="css/css.css"-->
     <script type="text/javascript">
         function muestraMensaje(mensaje) {
             if (mensaje != '')
@@ -56,21 +57,20 @@
 
     </script>
 
-</head>
-
+    </head>
 <body onload="muestraMensaje('{$mensaje}');">
     <header id="cabecera">
         <!-- Para imprimir los perfiles que obtenemos desde accesoPerfiles.class.php según el usuario que haya validado-->
         <div>
             {foreach from=$descripciones item=descripcion}
-            <form action="./src/AccesoVideos.class.php" method="post">
-                <button>{$descripcion}</button><br /><br />
+            <form action="AccesoVideos.class.php" method="post">
+                <p>{$descripcion}</p><br /><br />
             </form>
             {/foreach}
         </div>
     </header>
     <footer class="pie">
-        <div id="id"> <a href='./src/cerrar.php' class='enlaceboton'>Cerrar Sesión</a></div>
+        <div id="id"> <a href='cerrar.php' class='enlaceboton'>Cerrar Sesión</a></div>
     </footer>
 </body>
 

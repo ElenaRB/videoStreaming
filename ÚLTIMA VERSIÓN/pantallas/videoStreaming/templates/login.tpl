@@ -12,7 +12,7 @@
     <section>
         <article>
             <!-- Formulario de inicio de sesión-->
-            <form action="./src/validar.php" method="post">
+            <form action="validar.php" method="post">
                 <table>
                     <caption>Identificación</caption>
                     <tr><br/>
