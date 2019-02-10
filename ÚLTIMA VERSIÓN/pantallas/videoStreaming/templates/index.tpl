@@ -46,6 +46,29 @@
             font-size: 15px;
             margin-top: 20px;
         }
+        #videos{
+            display: inline-block;
+            margin-right: 50px;
+            margin-left: 50px;
+        }
+        #perfiles {
+            font-size: 25px;
+        }
+        h2{
+            background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+            background-size: cover;
+            color: transparent;
+            -moz-background-clip: text;
+            -webkit-background-clip: text;
+            text-transform: uppercase;
+            line-height: .75;
+            margin: 10px 0;
+            font-size: 30px;
+            
+        }
+        a {
+            font-size: 25px;
+        }
 
     </style>
     <!--link rel="stylesheet" type="text/css" href="css/css.css"-->
@@ -57,23 +80,28 @@
 
     </script>
 
-    </head>
+</head>
+
 <body onload="muestraMensaje('{$mensaje}');">
     <header id="cabecera">
         <!-- Para imprimir los perfiles que obtenemos desde accesoPerfiles.class.php según el usuario que haya validado-->
-        <div>
+        <h2> Perfiles: </h2>
+        <div id="perfiles">
             {foreach from=$descripciones item=descripcion}
             <form action="AccesoVideos.class.php" method="post">
-                <p>{$descripcion}</p><br /><br />
+                <p>{$descripcion}</p><br />
             </form>
             {/foreach}
         </div>
     </header>
     <main>
         {foreach from=$videos item=video}
-        <div>
+        <div id="videos">
             <form action="info.php" method="post">
-                <h3>{$video->titulo}</h3>
+                <h2>{$video->titulo}</h2>
+                {if $video->codigo|in_array:$visionados}
+                <p>Vista</p>
+                {/if}
                 <input type="hidden" name="codigo" value="{$video->codigo}" />
                 <input type="image" src="carteles/{$video->cartel}" />
             </form>

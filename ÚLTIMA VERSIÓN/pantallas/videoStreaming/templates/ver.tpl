@@ -4,6 +4,16 @@
 <head>
     <meta charset="utf-8" />
 </head>
+<style>
+    * {
+        background-color: black;
+        color: white;
+
+    }
+    
+
+</style>
+
 <body>
     <section>
         <video width="320" height="240" controls="controls" controlsList="nodownload" preload="auto">
