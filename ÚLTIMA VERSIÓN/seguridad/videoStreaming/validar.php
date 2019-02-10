@@ -56,6 +56,7 @@ session_start();
 //Datos del usuario 
 $_SESSION['validado']=true;
 $_SESSION['dni']=$dni;
+$_SESSION["variable"] = uniqid();
 	
 
 //Cierre

@@ -1,12 +1,21 @@
 <?php
     require_once("../../seguridad/videoStreaming/VideoStream.class.php");
+    require_once("../../seguridad/videoStreaming/Cripto.class.php");
+    require_once("../../seguridad/videoStreaming/Funciones.class.php");
 
-    $ruta="";
-    if (isset($_POST['ruta'])){
-        $ruta=trim(strip_tags($_POST['ruta']));
+    $rutaEncriptada="";
+    if (isset($_GET['ruta'])){
+        $rutaEncriptada=trim(strip_tags($_GET['ruta']));
     }
 
-    $stream = new VideoStream("../../recursos/videoStreaming/videos/video2.mp4");
+    $funciones=new Funciones();
+    $funciones -> inicioSesion();
+    $funciones -> validar();
+
+    $cripto = new Cripto();
+    $ruta = trim($cripto -> desencriptar($_SESSION['variable'], $rutaEncriptada));
+
+    $stream = new VideoStream("../../recursos/videoStreaming/videos/$ruta");
     $stream->start();
 
 ?>
