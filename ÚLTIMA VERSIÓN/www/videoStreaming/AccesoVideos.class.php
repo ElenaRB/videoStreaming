@@ -45,16 +45,15 @@ class AccesoVideos {
         $canal -> set_charset("utf8");
         //--------------------- CONSULTA VÍDEOS --------------------------------------------------------
         $consulta =$canal ->prepare("select * from videos where codigo = ?");
-        $videos=array();
         
         $consulta-> bind_param("s", $codigo1);
         $codigo1 = $codigo;
         $consulta ->execute();
-        $consulta -> bind_result($codigo,$titulo,$cartel,$descargable,$cod_perfil,$sinopsis,$video);
+        $consulta -> bind_result($codigo,$titulo,$cartel,$descargable,$cod_perfil,$sinopsis,$ruta);
         $consulta->fetch();
-        $video = new Video($codigo,$titulo,$cartel,$descargable,$cod_perfil,$sinopsis,$video);
+        $video = new Video($codigo,$titulo,$cartel,$descargable,$cod_perfil,$sinopsis,$ruta);
         
-        $canal -> close();
+        $consulta->close();
         return $video;
     }
 }

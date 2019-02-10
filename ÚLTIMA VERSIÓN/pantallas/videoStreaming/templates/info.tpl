@@ -12,6 +12,10 @@
         p {
             margin: 40px;
         }
+        
+        input {
+            margin: 20px;
+        }
     </style>
 </head>
 <body>
@@ -22,14 +26,17 @@
             <p>{$video->sinopsis}</p>
         </div>
         <form action="ver.php" method="post">
-            <input type="hidden" name="codigo" value="{$video->codigo}" />
+            <input type="hidden" name="ruta" value="{$video->video}" />
             <input type="submit" value="Ver" />
         </form>
         <form action="descargar.php" method="post">
-            <input type="hidden" name="codigo" value="{$video->codigo}" />
+            <input type="hidden" name="ruta" value="{$video->video}" />
             <input type="submit" value="Descargar" />
         </form>
     </section>
+    <footer class="pie">
+        <div id="id"> <a href='cerrar.php' class='enlaceboton'>Cerrar Sesión</a></div>
+    </footer>
 </body>
 
 </html>

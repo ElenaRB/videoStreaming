@@ -16,7 +16,7 @@
 		$this->descargable=$descargable;
         $this->codigo_perfil=$codigo_perfil;
         $this->sinopsis=$sinopsis;
-        $this->$video=$video;
+        $this->video=$video;
 	}
 
     //Función para adquirir los atributos del objeto creado
