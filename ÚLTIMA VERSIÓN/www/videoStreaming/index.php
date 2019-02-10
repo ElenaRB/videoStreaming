@@ -20,10 +20,10 @@
     $perfiles = $accesoPerfiles -> getCodPerfil($_SESSION['dni']);
     
     $accesoVideos = new AccesoVideos();
-    $videos = $accesoVideos -> $getVideos($perfiles);
+    $videos = $accesoVideos -> getVideos($perfiles);
 
 
-    $parametros = array('mensaje' => $mensaje, 'descripciones' => $descripciones);
+    $parametros = array('mensaje' => $mensaje, 'descripciones' => $descripciones, 'videos' => $videos);
     
     $pantalla = new Pantalla("../../pantallas/videoStreaming");
     $pantalla -> mostrar("index.tpl", $parametros);

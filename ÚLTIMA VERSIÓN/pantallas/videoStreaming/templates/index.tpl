@@ -69,6 +69,17 @@
             {/foreach}
         </div>
     </header>
+    <main>
+        {foreach from=$videos item=video}
+        <div>
+            <form action="info.php" method="post">
+                <h3>{$video->titulo}</h3>
+                <input type="hidden" name="codigo" value="{$video->codigo}" />
+                <input type="image" src="carteles/{$video->cartel}" />
+            </form>
+        </div>
+        {/foreach}
+    </main>
     <footer class="pie">
         <div id="id"> <a href='cerrar.php' class='enlaceboton'>Cerrar Sesión</a></div>
     </footer>
